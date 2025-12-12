@@ -276,11 +276,11 @@ function limpiarFormulario() {
 // ========== MODAL DE MIS APARTADOS ==========
 function openApartadosModal() {
     const container = document.getElementById('apartadosContainer');
-    
+
     if (apartados.length === 0) {
         container.innerHTML = `
-            <div class="empty-state">
-                <div class="empty-state-icon">🛍️</div>
+            <div class="apartados-empty">
+                <i class="fas fa-shopping-bag"></i>
                 <p>Aún no tienes prendas apartadas</p>
                 <p style="font-size: 0.9rem; margin-top: 0.5rem;">¡Comienza a explorar nuestras colecciones!</p>
             </div>
@@ -288,29 +288,35 @@ function openApartadosModal() {
     } else {
         container.innerHTML = apartados.map(apartado => {
             const tiempoRestante = calcularTiempoRestante(apartado.tiempoExpiracion);
-            const espirado = new Date() > new Date(apartado.tiempoExpiracion);
-            
+            const expirado = new Date() > new Date(apartado.tiempoExpiracion);
+
             return `
-                <div class="apartado-item" style="${espirado ? 'opacity: 0.5; border-color: var(--danger);' : ''}">
+                <div class="apartado-card ${expirado ? 'apartado-expired' : ''}">
+                    
+                    <img src="${apartado.imagenUrl || 'img/default.jpg'}">
+
                     <div class="apartado-info">
-                        <div class="apartado-producto">
-                            <span style="font-size: 1.5rem; margin-right: 0.5rem;">${apartado.imagen}</span>
-                            ${apartado.nombre}
-                        </div>
-                        <div class="apartado-detalles">
-                            Tamaño: <strong>${apartado.tamaño}</strong> | Color: <strong>${apartado.color}</strong> | Precio: <strong>€${apartado.precio.toFixed(2)}</strong>
-                        </div>
-                        <div class="apartado-cliente">
-                            📧 ${apartado.email} | 📞 ${apartado.telefono}
-                        </div>
-                        ${espirado ? '<div style="color: var(--danger); font-weight: bold; margin-top: 0.5rem;">⚠️ EXPIRADO</div>' : ''}
+                        <h4>${apartado.nombre}</h4>
+
+                        <p><strong>Tamaño:</strong> ${apartado.tamaño}</p>
+                        <p><strong>Color:</strong> ${apartado.color || 'No especificado'}</p>
+
+                        <p class="apartado-price">€${apartado.precio.toFixed(2)}</p>
+
+                        <p><i class="fas fa-envelope"></i> ${apartado.email} · 
+                           <i class="fas fa-phone"></i> ${apartado.telefono}</p>
+
+                        ${expirado ? `<p style="color: var(--danger); font-weight: bold;">⚠️ Expirado</p>` : ''}
                     </div>
-                    <div class="apartado-tiempo" style="${espirado ? 'background: var(--danger);' : ''}">
-                        ${tiempoRestante}
+
+                    <div class="apartado-actions">
+                        <div class="apartado-time ${expirado ? 'time-expired' : ''}">
+                            ${tiempoRestante}
+                        </div>
+                        <button class="btn-remove-apartado" onclick="eliminarApartado(${apartado.id})">
+                            Eliminar
+                        </button>
                     </div>
-                    <button class="btn-eliminar" onclick="eliminarApartado(${apartado.id})">
-                        Eliminar
-                    </button>
                 </div>
             `;
         }).join('');
@@ -318,6 +324,7 @@ function openApartadosModal() {
 
     document.getElementById('apartadosModal').classList.add('active');
 }
+
 
 function closeApartadosModal() {
     document.getElementById('apartadosModal').classList.remove('active');

@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modas Eclipse - Tienda de Ropa</title>
+    <title>Modas Eclipse - Tienda de Ropa Exclusiva</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation Header -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container navbar-container">
             <div class="navbar-left">
-                <h1 class="brand-logo">✦ MODAS ECLIPSE ✦</h1>
+                <h1 class="brand-logo"><i class="fas fa-gem"></i> MODAS ECLIPSE</h1>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Inicio</a></li>
-                <li><a href="#colecciones" class="nav-link">Colecciones</a></li>
-                <li><a href="#apartados" class="nav-link">Mis Apartados</a></li>
-                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#colecciones" class="nav-link"><i class="fas fa-th"></i> Colecciones</a></li>
+                <li><a href="#apartados" class="nav-link"><i class="fas fa-shopping-bag"></i> Mis Apartados</a></li>
+                <li><a href="#faq" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="#contacto" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
             </ul>
             <div class="navbar-right">
                 <button class="search-btn">
@@ -28,13 +29,17 @@
                     <i class="fas fa-shopping-bag"></i>
                     <span class="badge" id="apartadosBadge">0</span>
                 </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section con Video -->
     <section class="hero" id="home">
         <div class="hero-background">
+            <div class="hero-overlay"></div>
             <div class="eclipse-animation"></div>
         </div>
         <div class="container hero-container">
@@ -42,8 +47,11 @@
                 <h2 class="hero-title">MODAS ECLIPSE</h2>
                 <p class="hero-subtitle">Donde la elegancia se encuentra con la oscuridad</p>
                 <p class="hero-description">Colecciones exclusivas diseñadas para tu estilo único</p>
-                <a href="#colecciones" class="btn-primary">Explorar Colecciones</a>
+                <a href="#colecciones" class="btn-primary"><i class="fas fa-arrow-down"></i> Explorar Colecciones</a>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -51,22 +59,37 @@
     <section class="info-section">
         <div class="container">
             <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-icon">⏰</div>
+                <div class="info-card" data-aos="fade-up">
+                    <div class="info-icon"><i class="fas fa-clock"></i></div>
                     <h3>Apartado 24h</h3>
-                    <p>Reserva tus prendas favoritas por 24 horas</p>
+                    <p>Reserva tus prendas favoritas por 24 horas sin compromiso</p>
                 </div>
-                <div class="info-card">
-                    <div class="info-icon">🎁</div>
+                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-icon"><i class="fas fa-truck"></i></div>
                     <h3>Envíos Gratis</h3>
-                    <p>En compras mayores a €50</p>
+                    <p>En compras mayores a €50 a toda España</p>
                 </div>
-                <div class="info-card">
-                    <div class="info-icon">✓</div>
+                <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Calidad Premium</h3>
-                    <p>Las mejores marcas y materiales</p>
+                    <p>Las mejores marcas y materiales seleccionados</p>
+                </div>
+                <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-icon"><i class="fas fa-undo"></i></div>
+                    <h3>Devoluciones Fáciles</h3>
+                    <p>30 días para cambios y devoluciones</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section -->
+    <section class="parallax-section">
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+            <h2>Nueva Colección Primavera-Verano 2024</h2>
+            <p>Descubre las últimas tendencias en moda</p>
+            <a href="#colecciones" class="btn-primary">Ver Colección</a>
         </div>
     </section>
 
@@ -76,27 +99,39 @@
             <h2 class="section-title">Nuestras Colecciones</h2>
             <div class="categories-grid">
                 <button class="category-card active" data-category="todo">
-                    <div class="category-icon">👗</div>
+                    <div class="category-icon"><i class="fas fa-th-large"></i></div>
                     <h3>Todo</h3>
                 </button>
                 <button class="category-card" data-category="mujer">
-                    <div class="category-icon">👸</div>
+                    <div class="category-icon"><i class="fas fa-female"></i></div>
                     <h3>Mujer</h3>
                 </button>
                 <button class="category-card" data-category="hombre">
-                    <div class="category-icon">🧑</div>
+                    <div class="category-icon"><i class="fas fa-male"></i></div>
                     <h3>Hombre</h3>
                 </button>
                 <button class="category-card" data-category="accesorios">
-                    <div class="category-icon">👜</div>
+                    <div class="category-icon"><i class="fas fa-gem"></i></div>
                     <h3>Accesorios</h3>
                 </button>
+                <button class="category-card" data-category="zapatos">
+                    <div class="category-icon"><i class="fas fa-shoe-prints"></i></div>
+                    <h3>Zapatos</h3>
+                </button>
+                <button class="category-card" data-category="deportiva">
+                    <div class="category-icon"><i class="fas fa-running"></i></div>
+                    <h3>Deportiva</h3>
+                </button>
+                <button class="category-card" data-category="playa">
+                    <div class="category-icon"><i class="fas fa-umbrella-beach"></i></div>
+                    <h3>Playa</h3>
+                </button>
                 <button class="category-card" data-category="premium">
-                    <div class="category-icon">✨</div>
+                    <div class="category-icon"><i class="fas fa-crown"></i></div>
                     <h3>Premium</h3>
                 </button>
                 <button class="category-card" data-category="oferta">
-                    <div class="category-icon">💎</div>
+                    <div class="category-icon"><i class="fas fa-tags"></i></div>
                     <h3>Ofertas</h3>
                 </button>
             </div>
@@ -108,7 +143,7 @@
         <div class="container">
             <div class="filters-bar">
                 <div class="filter-group">
-                    <label>Ordenar por:</label>
+                    <label><i class="fas fa-sort"></i> Ordenar por:</label>
                     <select id="sortFilter" class="filter-select">
                         <option value="newest">Más Nuevo</option>
                         <option value="price-low">Precio: Menor a Mayor</option>
@@ -117,7 +152,7 @@
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label>Tamaño:</label>
+                    <label><i class="fas fa-ruler"></i> Tamaño:</label>
                     <select id="sizeFilter" class="filter-select">
                         <option value="">Todos</option>
                         <option value="XS">XS</option>
@@ -136,33 +171,186 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes sobre Apartados</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Cómo funciona el sistema de apartados?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Selecciona la prenda que te gusta, haz clic en "Apartar" y completa tus datos. La prenda quedará reservada para ti durante 24 horas. Recibirás un email de confirmación con un código de recogida.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Cuánto tiempo tengo para recoger mi apartado?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Tienes 24 horas desde el momento en que haces el apartado. Pasado ese tiempo, la prenda volverá a estar disponible para otros clientes. Te enviaremos recordatorios por email.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Puedo apartar más de una prenda?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sí, puedes apartar todas las prendas que desees. Cada una tendrá su propio período de 24 horas y código de recogida independiente.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Tiene algún costo el servicio de apartado?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            No, el servicio de apartado es completamente gratuito. Solo pagas por la prenda cuando la recoges en tienda.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Qué necesito para recoger mi apartado?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Necesitas presentar el código de recogida que te enviamos por email y un documento de identidad. También puedes mostrar el email de confirmación desde tu móvil.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>¿Puedo cancelar mi apartado?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sí, puedes cancelar tu apartado en cualquier momento desde "Mis Apartados" o simplemente no acudas a recogerlo. No hay penalización por no recoger un apartado.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"El sistema de apartados es increíble. Pude reservar un vestido que me encantó y probármelo tranquila en tienda. La calidad es excepcional."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>María González</h4>
+                            <p>Cliente desde 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Excelente servicio y prendas de primera calidad. El apartado online es muy cómodo y funciona perfectamente."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div class="author-info">
+                            <h4>Carlos Ruiz</h4>
+                            <p>Cliente frecuente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Me encanta la colección premium. La atención al cliente es excepcional y el sistema de apartados hace todo más fácil."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Ana López</h4>
+                            <p>VIP Member</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Detalle de Producto -->
+    <div class="modal" id="productDetailModal">
+        <div class="modal-overlay" onclick="closeProductDetailModal()"></div>
+        <div class="modal-content modal-large">
+            <button class="modal-close" onclick="closeProductDetailModal()"><i class="fas fa-times"></i></button>
+            <div class="product-detail-modal" id="productDetailContent">
+                <!-- Se llena dinámicamente -->
+            </div>
+        </div>
+    </div>
+
     <!-- Modal de Apartado -->
     <div class="modal" id="apartadoModal">
         <div class="modal-overlay" onclick="closeApartadoModal()"></div>
         <div class="modal-content">
-            <button class="modal-close" onclick="closeApartadoModal()">✕</button>
+            <button class="modal-close" onclick="closeApartadoModal()"><i class="fas fa-times"></i></button>
 
-            <h3 class="modal-title">Apartar Prenda</h3>
+            <h3 class="modal-title"><i class="fas fa-shopping-bag"></i> Apartar Prenda</h3>
 
             <div class="product-summary" id="productSummary"></div>
 
             <div class="form-group">
-                <label>Tu nombre</label>
+                <label><i class="fas fa-user"></i> Tu nombre</label>
                 <input type="text" id="customerName" placeholder="Ingresa tu nombre" class="form-input">
             </div>
 
             <div class="form-group">
-                <label>Teléfono</label>
+                <label><i class="fas fa-phone"></i> Teléfono</label>
                 <input type="tel" id="customerPhone" placeholder="Tu teléfono" class="form-input">
             </div>
 
             <div class="form-group">
-                <label>Email</label>
+                <label><i class="fas fa-envelope"></i> Email</label>
                 <input type="email" id="customerEmail" placeholder="tu@email.com" class="form-input">
             </div>
 
             <div class="form-group">
-                <label>Tamaño</label>
+                <label><i class="fas fa-ruler"></i> Tamaño</label>
                 <select id="selectedSize" class="form-input">
                     <option value="">Selecciona un tamaño</option>
                     <option value="XS">XS</option>
@@ -175,111 +363,91 @@
             </div>
 
             <div class="form-group">
-                <label>Color (si aplica)</label>
+                <label><i class="fas fa-palette"></i> Color (si aplica)</label>
                 <input type="text" id="selectedColor" placeholder="Color de la prenda" class="form-input">
             </div>
 
             <div class="info-box">
-                <p>⏰ El apartado es válido por <strong>24 horas</strong>. Pasado ese tiempo, la prenda volverá a estar disponible.</p>
+                <i class="fas fa-info-circle"></i>
+                <p>El apartado es válido por <strong>24 horas</strong>. Pasado ese tiempo, la prenda volverá a estar disponible.</p>
             </div>
 
-            <button class="btn-apartado" onclick="confirmarApartado()">Confirmar Apartado</button>
+            <button class="btn-apartado" onclick="confirmarApartado()">
+                <i class="fas fa-check"></i> Confirmar Apartado
+            </button>
         </div>
     </div>
 
-    <!-- Modal de Mis Apartados -->
-    <div class="modal" id="apartadosModal">
-        <div class="modal-overlay" onclick="closeApartadosModal()"></div>
-        <div class="modal-content modal-large">
-            <button class="modal-close" onclick="closeApartadosModal()">✕</button>
+<!-- Modal de Mis Apartados -->
+<div class="modal" id="apartadosModal">
+    <div class="modal-overlay" onclick="closeApartadosModal()"></div>
+    <div class="modal-content modal-large">
+        <button class="modal-close" onclick="closeApartadosModal()"><i class="fas fa-times"></i></button>
 
-            <h3 class="modal-title">Mis Apartados</h3>
+        <h3 class="modal-title"><i class="fas fa-shopping-bag"></i> Mis Apartados</h3>
 
-            <div id="apartadosContainer" class="apartados-list">
-                <!-- Se llenan dinámicamente -->
-            </div>
+        <div id="apartadosContainer" class="apartados-list">
+            <!-- Se llenan dinámicamente -->
         </div>
     </div>
+</div>
+
 
     <!-- Footer -->
     <footer class="footer" id="contacto">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <h4>Sobre Modas Eclipse</h4>
-                    <p>Tienda de ropa exclusiva con las mejores prendas para tu estilo personal.</p>
+                    <h4><i class="fas fa-gem"></i> Sobre Modas Eclipse</h4>
+                    <p>Tienda de ropa exclusiva con las mejores prendas para tu estilo personal. Calidad premium y diseños únicos.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h4>Información</h4>
+                    <h4><i class="fas fa-info-circle"></i> Información</h4>
                     <ul>
-                        <li><a href="#">Sobre Nosotros</a></li>
-                        <li><a href="#">Política de Privacidad</a></li>
-                        <li><a href="#">Términos y Condiciones</a></li>
-                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidad</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Términos y Condiciones</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Preguntas Frecuentes</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <p>📧 info@modaseclipse.com</p>
-                    <p>📞 +34 123 456 789</p>
-                    <p>📍 Madrid, España</p>
+                    <h4><i class="fas fa-envelope"></i> Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> info@modaseclipse.com</p>
+                    <p><i class="fas fa-phone"></i> +34 123 456 789</p>
+                    <p><i class="fas fa-map-marker-alt"></i> C/ Gran Vía 123, Madrid, España</p>
+                    <p><i class="fas fa-clock"></i> Lun-Sáb: 10:00 - 21:00</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Síguenos</h4>
-                    <div class="social-links">
-                        <a href="#">Instagram</a>
-                        <a href="#">Facebook</a>
-                        <a href="#">TikTok</a>
+                    <h4><i class="fas fa-bell"></i> Newsletter</h4>
+                    <p>Suscríbete para recibir ofertas exclusivas</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Tu email" class="newsletter-input">
+                        <button class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 Modas Eclipse. Todos los derechos reservados.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amex"></i>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-</html>
-                <label>Nombre completo</label>
-                <input type="text" id="nombre" placeholder="Tu nombre" required>
-            </div>
-
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" id="email" placeholder="tu@email.com" required>
-            </div>
-
-            <div class="form-group">
-                <label>Teléfono</label>
-                <input type="tel" id="telefono" placeholder="+34 600 000 000" required>
-            </div>
-
-            <div class="warning-box">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <p><strong>Importante:</strong> Tienes 24 horas para recoger tu prenda en tienda. Recibirás un email de confirmación.</p>
-            </div>
-
-            <button class="btn-submit" onclick="submitApartado()" id="submitBtn">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                Confirmar Apartado
-            </button>
-        </div>
-    </div>
-
-    <!-- Notificación -->
-    <div class="notification" id="notification">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="20 6 9 17 4 12"></polyline>
-        </svg>
-        <p id="notificationText"></p>
-    </div>
+    <!-- Botón Scroll to Top -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
